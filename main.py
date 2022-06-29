@@ -3,14 +3,14 @@
 import random
 
 print("Lets play Stone, Paper or SCissors !! ")
-computer_guess = random.randint(0,2)
+
 
 #computer_guess = 0 : stone
 #computer_guess = 1: paper
 #computer_guess = 2 : Scissors
 
 answer = input(" Are you ready to play ?? ").lower()
-
+options = ["stone" , "paper" , "scissors"]
 if answer != "yes" :
     quit()
 else:
@@ -18,8 +18,26 @@ else:
 
 while True:
     player_guess = input(" Stone, Paper or Scissors ?? ").lower()
-
-    if player_guess == "stone" && computer_guess == 0 :
-        print("its a Tie")
+    random_number = random.randint(0,2)
+    computer_guess = options[random_number]
+    if player_guess not in options:
         continue
-    elif player_guess == "stone" && computer_guess == 0 :
+
+    if player_guess == "stone" and computer_guess == "scissors" :
+        print("You Won !! ")
+        print("computer guess is "+ computer_guess)
+        continue
+    elif player_guess == "paper" and computer_guess == "stone" :
+        print("You Won !! ")
+        print("computer guess is " + computer_guess)
+        continue
+    elif player_guess == "scissors" and computer_guess == "paper" :
+        print("You Won !! ")
+        print("computer guess is " + computer_guess)
+        continue
+    else:
+        print(" You Lost !! ")
+        print("computer guess is " + computer_guess)
+        continue
+
+print(" Good Bye ! ")
